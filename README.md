@@ -1,132 +1,132 @@
-# 🖐️ CYBER FRAME CAMERA
-
 <div align="center">
 
-**Kamera AR real-time yang dikendalikan murni dengan gesture tangan.**
+```
+  ██████╗██╗   ██╗██████╗ ███████╗██████╗     ███████╗██████╗  █████╗ ███╗   ███╗███████╗
+ ██╔════╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔══██╗    ██╔════╝██╔══██╗██╔══██╗████╗ ████║██╔════╝
+ ██║      ╚████╔╝ ██████╔╝█████╗  ██████╔╝    █████╗  ██████╔╝███████║██╔████╔██║█████╗
+ ██║       ╚██╔╝  ██╔══██╗██╔══╝  ██╔══██╗    ██╔══╝  ██╔══██╗██╔══██║██║╚██╔╝██║██╔══╝
+ ╚██████╗   ██║   ██████╔╝███████╗██║  ██║    ██║     ██║  ██║██║  ██║██║ ╚═╝ ██║███████╗
+  ╚═════╝   ╚═╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
+```
 
-Tangan lo jadi *remote control* — bikin bingkai cyber, tembak filter dengan ketapel, sampe gambar digital di udara. Tanpa mouse, tanpa keyboard (kecuali mau).
+**CAMERA · AR · GESTURE**
+
+Dua tangan lo bukan buat berdoa — ini *remote control* kamera AR.
+Bingkai cyber, filter 23 gaya, dan ketapel yang menembak warna.
 
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
-![MediaPipe](https://img.shields.io/badge/MediaPipe-1F9E37?style=for-the-badge&logo=mediapipe&logoColor=white)
+![MediaPipe](https://img.shields.io/badge/MediaPipe-4CAF50?style=for-the-badge&logo=mediapipe&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
 
 </div>
 
 ---
 
-## ⚡ THE IDEA
-
-Kamera lo bukan cuma *recorder*. Ia jadi **kanvas + konsol game + studio efek** sekaligus. Semua di-control dari dua tangan di depan webcam.
-
-| Mode | Cara Pakai | Hasil |
-|------|-----------|-------|
-| 🪟 **FRAME** | Bentuk `L` di dua tangan, satukan, lalu tarik | Bingkai AR cyber dengan filter di dalamnya |
-| 💥 **KETAPEL** | Satu tangan `✌️ peace` + tangan lain `🤏 cubit`, tarik & lepas | "Menembak" layer filter yang menutupi seluruh layar |
-| 🎨 **GAMBAR** | Telunjuk menunjuk → coret-coret di udara | Gambar digital live di atas video |
-
----
-
-## 🎮 GESTURE & KONTROL
+## 🕹️ TIGA MODE — SATU KAMERA
 
 ```
-╔═══════════════════════════════════════════════════════════════╗
-║  ✌️✌️  L + L           = Buka bingkai AR (tarik = perbesar)      ║
-║  🤏🤏  2 CUBIT         = Ganti filter lensa                      ║
-║  ✌️ + 🤏 PEACE+CUBIT  = Mode KETAPEL: tarik → LEPAS = TEMBAK     ║
-║  ☝️    TELUNJUK        = Gambar (mode GAMBAR)                    ║
-║  ✊    KEPAL           = Geser semua goresan                     ║
-╚═══════════════════════════════════════════════════════════════╝
+┌─────────────────────────────────────────────────────────────────────┐
+│                                                                    │
+│   ✌️✌️  L + L      🪟 FRAME      tarik & buka bingkai AR           │
+│   ✌️ + 🤏         💥 KETAPEL    tarik → lepas → tembak filter      │
+│   ☝️              🎨 GAMBAR     telunjuk = kuas, udara = kanvas    │
+│                                                                    │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
-### ⌨️ Keyboard (opsional)
+### ⌨️ Keyboard
 
 | Key | Aksi |
 |-----|------|
-| `G` | Ganti mode **LENSA ↔ GAMBAR** |
+| `G` | LENSA ↔ GAMBAR |
 | `F` | Foto → `foto/` |
-| `C` / `U` | Clear / Undo kanvas |
-| `B` / `V` / `X` | Warna pena / tebal / tipis |
-| `S` | Reset posisi kanvas |
-| `P` / `N` | Toggle / ganti filter manual |
-| `ESC` / `Q` | Keluar |
+| `C` `U` | Clear / Undo |
+| `B` `V` `X` | Warna / tebal / tipis |
+| `S` `P` `N` | Reset / toggle / ganti filter |
+| `ESC` | Keluar |
 
 ---
 
-## 💥 FITUR KETAPEL
+## 💥 KETAPEL — THE MAIN EVENT
 
-Ini bintang utamanya. Peace + cubit = ketapel beneran:
+```
+   peace 🖐️✌️ + cubit 🤏
+        │
+        │  TARIK → busur menekuk, bola energi membesar,
+        │          warna naik: 🟢 → 🟡 → 🟠 → 🔴
+        ▼
+     LEPAS → B A N G !  💥 flash + shockwave + amunisi menutup layar
+```
 
-- 🏹 **Busur bezier responsif** — makin ditarik, busur makin tegang & lurus. Fisika ketapel asli.
-- ✨ **Glow 3 lapis** — setiap garis digambar dengan halo gelap + inti neon + core putih-panas.
-- ⚡ **Partikel energi** — titik-titik mengalir dari garpu ke titik tarik, makin deras makin ditarik.
-- 🔴 **Color shift** — hijau tenang → kuning → oranye → merah saat stretch 70%+ (peringatan batas maksimal).
-- 🎯 **Garis proyeksi** — preview ke mana amunisi bakal terbang.
-- 💥 **Fire effect** — flash putih + shockwave ring + slide-in layer filter baru.
+| Fitur | Detail |
+|-------|--------|
+| 🏹 Busur bezier | Melengkung menjauhi titik tarik; makin kencang makin lurus |
+| ✨ Glow 3 lapis | Halo gelap → inti neon → core putih panas |
+| ⚡ Partikel energi | Mengalir dari garpu ke tarikan, akselerasi di ujung |
+| 🔴 Color shift | Hijau→kuning→oranye→merah, berkedip di 70%+ |
+| 🎯 Proyeksi | Garis putus-putus preview arah tembakan |
+| 💥 Fire FX | Flash + shockwave ring + slide-in filter baru |
 
-### 10 Amunisi
-
-`CYBER_NEON` · `VOID_PULSE` · `GOLDEN_HOUR` · `BLOOD_RUSH` · `FROSTBITE` · `NEGATIVE_REVERSE` · `THERMAL_VISION` · `PSYCHEDELIC` · `PAPER_DAWN` · `IRON_GRIT`
+**10 amunisi:** `CYBER_NEON` · `VOID_PULSE` · `GOLDEN_HOUR` · `BLOOD_RUSH` · `FROSTBITE` · `NEGATIVE_REVERSE` · `THERMAL_VISION` · `PSYCHEDELIC` · `PAPER_DAWN` · `IRON_GRIT`
 
 ---
 
 ## 🎨 23 FILTER LENSA
 
-`CYBER` · `MONO` · `KONTRAS` · `FILM` · `GARIS` · `AMBANG` · `DITHER` · `NEGATIF` · `TEPI` · `TERMAL` · `KEDALAMAN` · `BALIK` · `PIXEL` · `PELANGI` · `SKETSA` · `SEPIA` · `EMAS` · `RIO` · `AQUA` · `NEON` · `PASTEL` · `VIGNET` · `DUO`
+```
+CYBER    MONO     KONTRAS  FILM     GARIS    AMBANG   DITHER
+NEGATIF  TEPI     TERMAL   KEDALAMAN BALIK   PIXEL    PELANGI
+SKETSA   SEPIA    EMAS     RIO      AQUA     NEON     PASTEL
+VIGNET   DUO
+```
 
 ---
 
-## 📁 STRUKTUR PROYEK
+## 📁 STRUKTUR
 
 ```
 hand_tracker/
-├── main.py              # 🚀 Entry: loop kamera, deteksi, keyboard
+├── main.py            🚀 entry: kamera loop + keyboard
 ├── src/
-│   ├── config.py        # ⚙️  Konstanta: model, filter, amunisi, warna
-│   ├── geometry.py      # 📐 Jarak, bounds, smoothing polygon
-│   ├── gesture.py       # 🖐️  Deteksi gesture (L, peace, pinch, kepal…)
-│   ├── filters.py       # 🎨 23 filter lensa + 10 layer amunisi ketapel
-│   ├── ketapel.py       # 💥 Render ketapel: bezier, glow, partikel, bola
-│   ├── lensa.py         # 🪟 Mode LENSA: bingkai AR, auto-foto, ketapel
-│   ├── gambar.py        # 🎨 Mode GAMBAR: goresan, undo, geser, hapus
-│   └── overlays.py      # 📺 HUD, ring progress, simpan foto
-├── requirements.txt
-└── README.md
+│   ├── config.py      ⚙️  konstanta & daftar filter/amunisi
+│   ├── geometry.py    📐 jarak, bounds, smoothing
+│   ├── gesture.py     🖐️  deteksi gesture tangan
+│   ├── filters.py     🎨 23 filter + 10 amunisi
+│   ├── ketapel.py     💥 render ketapel (bezier, glow, partikel)
+│   ├── lensa.py       🪟 mode frame AR + auto-foto + ketapel
+│   ├── gambar.py      🎨 mode gambar (goresan, undo, geser)
+│   └── overlays.py    📺 HUD + simpan foto
+└── requirements.txt
 ```
 
 ---
 
-## ⚡ SETUP
+## ⚡ JALANKAN
 
 ```bash
-# 1. Clone & masuk
 git clone https://github.com/f1qxzz/hand-tracker
 cd hand-tracker
-
-# 2. Install dependency
-pip install -r requirements.txt
-
-# 3. Siapkan model MediaPipe (hand_landmarker.task) di root project
-
-# 4. Jalan!
+pip install -r requirements.txt   # + hand_landmarker.task di root
 python main.py
 ```
 
-> 💡 Model `hand_landmarker.task` bisa didownload dari [MediaPipe Models](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker#models).
+> Model MediaPipe: [developers.google.com/mediapipe/.../hand_landmarker](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker#models)
 
 ---
 
-## 🔧 TIPS
+## 🔧 TUNING
 
-- 💡 **Cahaya cukup** — akurasi hand detection naik drastis.
-- 📏 **Jarak 40–80 cm** dari kamera adalah sweet spot.
-- 🎛️ **FPS vs presisi** — ubah `DETECT_W/H` di `src/config.py`. Kecilin = FPS naik.
-- 🤏 **Sensitifitas pinch** — ubah threshold di `src/gesture.py`.
+| Ingin | Ubah di `src/config.py` |
+|-------|------------------------|
+| 🚀 FPS lebih tinggi | Kecilkan `DETECT_W/H` |
+| 📡 Deteksi lebih stabil | Naikkan `TAHAN_QUAD_HILANG` |
+| 🔥 Ketapel lebih gampang nembak | Turunkan threshold pinch di `src/gesture.py` |
 
 ---
 
 <div align="center">
 
-Made with 🖐️ + 🐍 + too much kafein
+**MADE WITH 🖐️ + 🐍 + CAFEIN** · [f1qxzz/hand-tracker](https://github.com/f1qxzz/hand-tracker)
 
 </div>
