@@ -1,4 +1,4 @@
-"""Engine filter gambar (lensa) + layer amunisi ketapel."""
+﻿"""Engine filter gambar (lensa) + layer amunisi ketapel."""
 import math
 
 import cv2
@@ -205,7 +205,7 @@ def filter_frame(f, kind, time_s, rng):
     return (np.clip(1 - (1 - r / 255.0) * (1 - orange * 0.18 / 255.0), 0, 1) * 255).astype(np.uint8)
 
 
-# ── Layer amunisi KETAPEL (filter seluruh layar) ─────────────────────────────
+# â”€â”€ Layer amunisi KETAPEL (filter seluruh layar) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def am_cyber(f, time_s):
     h, w = f.shape[:2]
     g = gray(f)

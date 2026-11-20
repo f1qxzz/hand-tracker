@@ -119,11 +119,12 @@ def render_lensa(frame, info, time_s, W, H, rng):
             x0, x1 = max(0, int(min(xs)) - 4), min(W, int(max(xs)) + 4)
             y0, y1 = max(0, int(min(ys)) - 4), min(H, int(max(ys)) + 4)
             crop = frame[y0:y1, x0:x1]
-            m2 = np.zeros((y1 - y0, x1 - x0), dtype=np.uint8)
-            pts2 = np.array(poin, dtype=np.int32) - np.array([x0, y0])
-            cv2.fillPoly(m2, [pts2.reshape((-1, 1, 2))], 255)
-            filt = filter_frame(crop, LENSA[idx_lensa][1], time_s, rng)
-            crop[m2 > 0] = filt[m2 > 0]
+            if crop.shape[0] >= 4 and crop.shape[1] >= 4:
+                m2 = np.zeros((y1 - y0, x1 - x0), dtype=np.uint8)
+                pts2 = np.array(poin, dtype=np.int32) - np.array([x0, y0])
+                cv2.fillPoly(m2, [pts2.reshape((-1, 1, 2))], 255)
+                filt = filter_frame(crop, LENSA[idx_lensa][1], time_s, rng)
+                crop[m2 > 0] = filt[m2 > 0]
 
             # border cyber
             pts = np.array(poin, dtype=np.int32).reshape((-1, 1, 2))
